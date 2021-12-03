@@ -24,15 +24,15 @@ body {
     background-image: linear-gradient(var(--color-soft-violet), var(--color-soft-blue));
     background-size: cover;
     background-color: var(--color-soft-violet);
+    height: 100vh;
 }
 
 #container {
     margin: 100px auto;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: white;
     width: 70%;
-    display: grid;
-    grid-template-areas: 'hero faq';
+    display: flex;
     overflow: hidden;
     color: var(--color-very-dark-desaturated-blue);
 }
@@ -42,30 +42,86 @@ body {
     position: absolute;
     top: 280px;
     left: 110px;
-    overflow: visible;
+}
+
+@media screen and (max-width: 992px) {
+    #container {
+        width: 90%;
+    }
+
+    #container::after {
+        left: -43px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #container {
+        margin: 175px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+        position: relative;
+    }
+
+    #container::after {
+        display: none;
+    }
 }
 
 /* Hero image */
 
-.hero-image {
-    grid-area: hero;
+.hero-image-desktop {
     margin-left: -85px;
-    margin-right: 600px;
+    margin-right: 150px;
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: visible;
 }
 
-.hero-image img:nth-child(1) {
+.hero-image-desktop img:nth-child(1) {
     position: absolute;
     top: 50px;
-    overflow: hidden;
 }
 
-.hero-image img:nth-child(2) {
+.hero-image-desktop img:nth-child(2) {
     position: absolute;
     left: -492px;
     top: -310px;
+}
+
+.hero-image-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 576px) {
+    .hero-image-desktop {
+        display: none;
+    }
+
+    .hero-image-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 100px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-image-mobile img:nth-child(1) {
+        position: absolute;
+        width: 240px;
+        bottom: -75px;
+    }
+
+    .hero-image-mobile img:nth-child(2) {
+        position: absolute;
+        bottom: -105px;
+    }
 }
 
 /* End Hero omage */
@@ -73,15 +129,13 @@ body {
 /* FAQ */
 
 .faq {
-    margin-left: -100px;
-    grid-area: faq;
     padding: 50px 50px 80px 50px;
     position: relative;
+    width: 100%;
 }
 
 .faq section {
     border-bottom: 1px solid var(--color-dark-grayish-blue);
-    width: 430px;
 }
 
 .faq section:nth-child(2) {
@@ -101,8 +155,9 @@ body {
     transition: 0.2s;
 }
 
-.faq-items .faq-items span img {
+.faq .faq-items span img {
     transition: 0.3s;
+    margin-left: 30px;
 }
 
 .faq .desc-faq-items {
@@ -110,6 +165,7 @@ body {
     color: var(--color-dark-grayish-blue);
     margin-left: 3px;
     padding-bottom: 15px;
+    width: fit-content;
 }
 
 .bold {
@@ -121,6 +177,28 @@ body {
     font-size: 17px;
     transform: rotate(180deg);
     transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .faq section {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .faq {
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .faq {
+        margin-left: 0;
+    }
+
+    .faq header {
+        text-align: center;
+    }
 }
 
 /* End FAQ */
