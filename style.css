@@ -24,7 +24,6 @@ body {
     background-image: linear-gradient(var(--color-soft-violet), var(--color-soft-blue));
     background-size: cover;
     background-color: var(--color-soft-violet);
-    height: 100vh;
 }
 
 #container {
