@@ -92,7 +92,7 @@ body {
 }
 
 .hero-image-mobile {
-    display: none;
+    display: none;    
 }
 
 @media screen and (max-width: 576px) {
@@ -146,6 +146,7 @@ body {
     padding: 20px 5px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .faq .faq-items:hover {
@@ -160,11 +161,13 @@ body {
 }
 
 .faq .desc-faq-items {
-    display: none;
     color: var(--color-dark-grayish-blue);
     margin-left: 3px;
-    padding-bottom: 15px;
     width: fit-content;
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+    overflow-y: auto;
 }
 
 .bold {
@@ -175,7 +178,12 @@ body {
 .rotate {
     font-size: 17px;
     transform: rotate(180deg);
-    transition: 0.3s;
+    transition: 0.5s;
+}
+
+.faq .desc-faq-items.slide {
+    height: 80px;
+    padding: 0 15px 15px 0;
 }
 
 @media screen and (max-width: 768px) {
